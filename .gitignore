@@ -1,3 +1,7 @@
+storybook-static
+types
+custom-elements.json
+
 # Logs
 logs
 *.log

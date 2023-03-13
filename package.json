@@ -15,14 +15,18 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "analyze": "cem analyze --litelement",
+    "analyze:watch": "cem analyze --watch --litelement",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook:build": "build-storybook",
+    "prepare": "npm run build"
   },
   "dependencies": {
     "lit": "^2.6.1"
   },
   "devDependencies": {
     "@babel/core": "^7.21.0",
+    "@custom-elements-manifest/analyzer": "^0.6.9",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-essentials": "^6.5.16",
     "@storybook/addon-links": "^6.5.16",
