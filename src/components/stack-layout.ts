@@ -11,19 +11,48 @@ type Orientation = "horizontal" | "vertical";
 export class StackLayout extends LitElement {
   static styles = css`
     :host {
-      display: flex;
+      display: block;
       position: relative;
-      height: 100%;
-      width: 100%;
+      height: auto;
+      width: auto;
+      overflow: hidden;
+    }
+
+    :host([overflow]) {
+      overflow-y: auto;
+    }
+
+    :host([overflow][orientation="horizontal"]) {
+      overflow-y: hidden;
+      overflow-x: auto;
     }
 
     slot {
+      display: flex;
       position: relative;
-      display: block;
-      height: 100%;
-      width: 100%;
+      flex-direction: column;
+      height: fit-content;
+    }
+
+    :host([orientation="horizontal"]) slot {
+      flex-direction: row;
+      width: fit-content;
+    }
+
+    ::slotted(*) {
+      flex: 0 0 auto;
+      margin: var(--spacing) 0;
+    }
+
+    :host([orientation="horizontal"])::slotted(*) {
+      margin: 0 var(--spacing);
     }
   `;
+
+  /**
+   * @internal
+   */
+  readonly #DEFAULT_SPACING = "0";
 
   /**
    * The orientation of the stack layout. The avaiable values are `"horizontal"` and `"vertical"`.
@@ -34,15 +63,26 @@ export class StackLayout extends LitElement {
 
   /**
    * The amount of space between each child view (in CSS format, ex. `"0"`, `"5px"`, `"1em"`, or `"5%"`).
+   * This is only supposed to be used and work properly if the child views' margins are not set.
    * Default to `"0"`;
    */
-  @property() spacing: string = "0";
+  get spacing(): string {
+    return getComputedStyle(this).getPropertyValue("--spacing");
+  }
+  @property() set spacing(value: string) {
+    this.style.setProperty("--spacing", value);
+  }
 
   /**
    * If `true` or presents, it would allow overflow in the stack orientaion if needed;
    * if `false` or not presents, the overflow will be disabled.
    */
   @property({ type: Boolean }) overflow = false;
+
+  constructor() {
+    super();
+    this.spacing = this.#DEFAULT_SPACING;
+  }
 
   render() {
     return html`<slot></slot>`;
