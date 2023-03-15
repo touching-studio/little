@@ -17,7 +17,7 @@
     "build": "tsc && vite build",
     "analyze": "cem analyze --litelement",
     "analyze:watch": "cem analyze --watch --litelement",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "BROWSER=none start-storybook -p 6006",
     "storybook:build": "build-storybook",
     "prepare": "npm run build"
   },
