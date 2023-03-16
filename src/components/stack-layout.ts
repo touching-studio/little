@@ -59,7 +59,7 @@ export class StackLayout extends LitElement {
    * Default to `"vertical"`.
    * @type {'horizontal' | 'vertical'}
    */
-  @property() orientation: Orientation = "vertical";
+  @property({ reflect: true }) orientation: Orientation = "vertical";
 
   /**
    * The amount of space between each child view (in CSS format, ex. `"0"`, `"5px"`, `"1em"`, or `"5%"`).
@@ -69,7 +69,7 @@ export class StackLayout extends LitElement {
   get spacing(): string {
     return getComputedStyle(this).getPropertyValue("--spacing");
   }
-  @property() set spacing(value: string) {
+  @property({ reflect: true }) set spacing(value: string) {
     this.style.setProperty("--spacing", value);
   }
 
@@ -77,7 +77,7 @@ export class StackLayout extends LitElement {
    * If `true` or presents, it would allow overflow in the stack orientaion if needed;
    * if `false` or not presents, the overflow will be disabled.
    */
-  @property({ type: Boolean }) overflow = false;
+  @property({ type: Boolean, reflect: true }) overflow = false;
 
   constructor() {
     super();
