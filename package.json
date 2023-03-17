@@ -15,6 +15,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "lint": "npm run lint:lit-analyzer && npm run lint:eslint",
+    "lint:eslint": "eslint 'src/**/*.ts'",
+    "lint:lit-analyzer": "lit-analyzer",
+    "format": "prettier \"**/*.{cjs,html,js,json,md,ts}\" --ignore-path ./.eslintignore --write",
     "analyze": "cem analyze --litelement",
     "analyze:watch": "cem analyze --watch --litelement",
     "storybook": "BROWSER=none start-storybook -p 6006",
@@ -32,9 +36,14 @@
     "@storybook/addon-links": "^6.5.16",
     "@storybook/builder-vite": "^0.4.2",
     "@storybook/web-components": "^6.5.16",
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "@typescript-eslint/parser": "^5.55.0",
     "babel-loader": "^8.3.0",
+    "eslint": "^8.36.0",
+    "lit-analyzer": "^1.2.1",
     "lit-html": "^2.6.1",
-    "typescript": "^4.9.3",
+    "ts-lit-plugin": "^1.2.1",
+    "typescript": "^4.9.5",
     "vite": "^4.1.0"
   }
 }

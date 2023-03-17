@@ -1,7 +1,7 @@
-import { css, html, LitElement } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import {css, html, LitElement} from 'lit';
+import {customElement, property} from 'lit/decorators.js';
 
-type Orientation = "horizontal" | "vertical";
+type Orientation = 'horizontal' | 'vertical';
 
 /**
  * A bar container that can be either horizontal or vertical.
@@ -9,7 +9,7 @@ type Orientation = "horizontal" | "vertical";
  * @slot before - Content in this slot would be put before the main content.
  * @slot after - Content in this slot would be put after the main content.
  */
-@customElement("little-bar")
+@customElement('little-bar')
 export class SgBar extends LitElement {
   static styles = css`
     :host {
@@ -20,7 +20,7 @@ export class SgBar extends LitElement {
       overflow: hidden;
     }
 
-    :host([orientation="vertical"]) {
+    :host([orientation='vertical']) {
       flex-direction: column;
     }
 
@@ -29,12 +29,12 @@ export class SgBar extends LitElement {
       position: relative;
     }
 
-    [part~="before"],
-    [part~="after"] {
+    [part~='before'],
+    [part~='after'] {
       flex: 0 0 auto;
     }
 
-    [part~="main"] {
+    [part~='main'] {
       flex: 1;
     }
   `;
@@ -44,7 +44,7 @@ export class SgBar extends LitElement {
    * Default to `"horizontal"`.
    * @type {'horizontal' | 'vertical'}
    */
-  @property({ reflect: true }) orientation: Orientation = "horizontal";
+  @property({reflect: true}) orientation: Orientation = 'horizontal';
 
   render() {
     return html`

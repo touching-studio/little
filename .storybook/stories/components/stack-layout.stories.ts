@@ -1,21 +1,21 @@
-import { Meta, StoryObj } from "@storybook/web-components";
-import { html, render } from "lit";
+import {Meta, StoryObj} from '@storybook/web-components';
+import {html, render} from 'lit';
 
-import "../../../src/components/stack-layout";
+import '../../../src/components/stack-layout';
 
 export default {
-  title: "Components/Stack Layout",
-  component: "little-stack-layout",
-  render: () => "",
+  title: 'Components/Stack Layout',
+  component: 'little-stack-layout',
+  render: () => '',
 } as Meta;
 
 export const Default: StoryObj = {
-  name: "Default",
+  name: 'Default',
   args: {
     testItemCount: 3,
-    orientation: "vertical",
+    orientation: 'vertical',
     overflow: false,
-    spacing: "5px",
+    spacing: '5px',
   },
   render: (args) => html`
     <style>
@@ -42,7 +42,7 @@ export const Default: StoryObj = {
 };
 
 export const Vertical: StoryObj = {
-  name: "Vertical",
+  name: 'Vertical',
   args: {},
   render: (args) => html`
     <style>
@@ -66,7 +66,7 @@ export const Vertical: StoryObj = {
 };
 
 export const VerticalOverflow: StoryObj = {
-  name: "Vertical (with overflow)",
+  name: 'Vertical (with overflow)',
   args: {},
   render: (args) => html`
     <style>
@@ -91,7 +91,7 @@ export const VerticalOverflow: StoryObj = {
 };
 
 export const Horizontal: StoryObj = {
-  name: "Horizontal",
+  name: 'Horizontal',
   args: {},
   render: (args) => html`
     <style>
@@ -115,7 +115,7 @@ export const Horizontal: StoryObj = {
 };
 
 export const HorizontalOverflow: StoryObj = {
-  name: "Horizontal (with overflow)",
+  name: 'Horizontal (with overflow)',
   args: {},
   render: (args) => html`
     <style>

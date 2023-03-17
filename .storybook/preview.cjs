@@ -4,7 +4,7 @@ import customElementsManifest from '../custom-elements.json';
 setCustomElementsManifest(customElementsManifest);
 
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
+  actions: {argTypesRegex: '^on[A-Z].*'},
   controls: {
     matchers: {
       color: /(background|color)$/i,

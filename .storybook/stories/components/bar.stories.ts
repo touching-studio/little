@@ -1,22 +1,22 @@
-import { Meta, StoryObj } from "@storybook/web-components";
-import { html, render } from "lit";
+import {Meta, StoryObj} from '@storybook/web-components';
+import {html, render} from 'lit';
 
-import "../../../src/components/bar";
-import "../../../src/components/stack-layout";
+import '../../../src/components/bar';
+import '../../../src/components/stack-layout';
 
 export default {
-  title: "Components/Bar",
-  component: "little-bar",
+  title: 'Components/Bar',
+  component: 'little-bar',
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  render: () => "",
+  render: () => '',
 } as Meta;
 
 export const Default: StoryObj = {
-  name: "Default",
+  name: 'Default',
   args: {
-    orientation: "horizontal",
+    orientation: 'horizontal',
   },
   render: (args) => html`
     <style>
@@ -39,7 +39,7 @@ export const Default: StoryObj = {
 };
 
 export const Vertical: StoryObj = {
-  name: "Vertical",
+  name: 'Vertical',
   args: {},
   render: (args) => html`
     <style>
@@ -63,7 +63,7 @@ export const Vertical: StoryObj = {
 };
 
 export const VerticalOnlyMain: StoryObj = {
-  name: "Vertical (only main content)",
+  name: 'Vertical (only main content)',
   args: {},
   render: (args) => html`
     <style>
@@ -85,7 +85,7 @@ export const VerticalOnlyMain: StoryObj = {
 };
 
 export const Horizontal: StoryObj = {
-  name: "Horizontal",
+  name: 'Horizontal',
   args: {},
   render: (args) => html`
     <style>
@@ -108,7 +108,7 @@ export const Horizontal: StoryObj = {
 };
 
 export const HorizontalOnlyMain: StoryObj = {
-  name: "Horizontal (only main content)",
+  name: 'Horizontal (only main content)',
   args: {},
   render: (args) => html`
     <style>
@@ -129,7 +129,7 @@ export const HorizontalOnlyMain: StoryObj = {
 };
 
 export const WithStackLayout: StoryObj = {
-  name: "Bar with stack layout",
+  name: 'Bar with stack layout',
   args: {},
   render: (args) => html`
     <style>

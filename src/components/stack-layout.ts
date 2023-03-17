@@ -1,13 +1,13 @@
-import { LitElement, html, css } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import {LitElement, html, css} from 'lit';
+import {customElement, property} from 'lit/decorators.js';
 
-type Orientation = "horizontal" | "vertical";
+type Orientation = 'horizontal' | 'vertical';
 
 /**
  * A stack layout that organizes child views in a one-dimensional stack, either horizontally or vertically.
  * Similar to [this](https://learn.microsoft.com/en-us/dotnet/maui/user-interface/layouts/stacklayout).
  */
-@customElement("little-stack-layout")
+@customElement('little-stack-layout')
 export class StackLayout extends LitElement {
   static styles = css`
     :host {
@@ -22,7 +22,7 @@ export class StackLayout extends LitElement {
       overflow-y: auto;
     }
 
-    :host([overflow][orientation="horizontal"]) {
+    :host([overflow][orientation='horizontal']) {
       overflow-y: hidden;
       overflow-x: auto;
     }
@@ -34,7 +34,7 @@ export class StackLayout extends LitElement {
       height: fit-content;
     }
 
-    :host([orientation="horizontal"]) slot {
+    :host([orientation='horizontal']) slot {
       flex-direction: row;
       width: fit-content;
     }
@@ -44,7 +44,7 @@ export class StackLayout extends LitElement {
       margin: var(--spacing) 0;
     }
 
-    :host([orientation="horizontal"])::slotted(*) {
+    :host([orientation='horizontal'])::slotted(*) {
       margin: 0 var(--spacing);
     }
   `;
@@ -52,14 +52,14 @@ export class StackLayout extends LitElement {
   /**
    * @internal
    */
-  readonly #DEFAULT_SPACING = "0";
+  readonly #DEFAULT_SPACING = '0';
 
   /**
    * The orientation of the stack layout. The avaiable values are `"horizontal"` and `"vertical"`.
    * Default to `"vertical"`.
    * @type {'horizontal' | 'vertical'}
    */
-  @property({ reflect: true }) orientation: Orientation = "vertical";
+  @property({reflect: true}) orientation: Orientation = 'vertical';
 
   /**
    * The amount of space between each child view (in CSS format, ex. `"0"`, `"5px"`, `"1em"`, or `"5%"`).
@@ -67,17 +67,17 @@ export class StackLayout extends LitElement {
    * Default to `"0"`;
    */
   get spacing(): string {
-    return getComputedStyle(this).getPropertyValue("--spacing");
+    return getComputedStyle(this).getPropertyValue('--spacing');
   }
-  @property({ reflect: true }) set spacing(value: string) {
-    this.style.setProperty("--spacing", value);
+  @property({reflect: true}) set spacing(value: string) {
+    this.style.setProperty('--spacing', value);
   }
 
   /**
    * If `true` or presents, it would allow overflow in the stack orientaion if needed;
    * if `false` or not presents, the overflow will be disabled.
    */
-  @property({ type: Boolean, reflect: true }) overflow = false;
+  @property({type: Boolean, reflect: true}) overflow = false;
 
   constructor() {
     super();
