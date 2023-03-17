@@ -11,12 +11,7 @@ export default {
 
 export const Default: StoryObj = {
   name: 'Default',
-  args: {
-    testItemCount: 3,
-    orientation: 'vertical',
-    overflow: false,
-    spacing: '5px',
-  },
+  args: {},
   render: (args) => html`
     <style>
       little-footer {
