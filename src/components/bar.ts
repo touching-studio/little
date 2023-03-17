@@ -10,7 +10,7 @@ type Orientation = 'horizontal' | 'vertical';
  * @slot after - Content in this slot would be put after the main content.
  */
 @customElement('little-bar')
-export class SgBar extends LitElement {
+export class Bar extends LitElement {
   static styles = css`
     :host {
       display: flex;
